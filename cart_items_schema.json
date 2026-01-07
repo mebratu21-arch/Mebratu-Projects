@@ -1,0 +1,38 @@
+{
+  "id": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": false,
+    "defaultValue": "nextval('cart_items_id_seq'::regclass)"
+  },
+  "cart_id": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": false,
+    "defaultValue": null
+  },
+  "product_id": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": null
+  },
+  "quantity": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "1"
+  },
+  "qty": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "1"
+  },
+  "variant_id": {
+    "type": "character varying",
+    "maxLength": 255,
+    "nullable": true,
+    "defaultValue": null
+  }
+}

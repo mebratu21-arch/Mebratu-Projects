@@ -1,0 +1,26 @@
+{
+  "id": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": false,
+    "defaultValue": "nextval('carts_id_seq'::regclass)"
+  },
+  "user_id": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": null
+  },
+  "created_at": {
+    "type": "timestamp with time zone",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "now()"
+  },
+  "updated_at": {
+    "type": "timestamp with time zone",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "now()"
+  }
+}
