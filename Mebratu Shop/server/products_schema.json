@@ -1,0 +1,74 @@
+{
+  "id": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": false,
+    "defaultValue": "nextval('products_id_seq'::regclass)"
+  },
+  "title": {
+    "type": "character varying",
+    "maxLength": 255,
+    "nullable": false,
+    "defaultValue": null
+  },
+  "description": {
+    "type": "text",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": null
+  },
+  "price": {
+    "type": "numeric",
+    "maxLength": null,
+    "nullable": false,
+    "defaultValue": null
+  },
+  "image": {
+    "type": "character varying",
+    "maxLength": 255,
+    "nullable": true,
+    "defaultValue": null
+  },
+  "stock": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "0"
+  },
+  "is_active": {
+    "type": "boolean",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "true"
+  },
+  "created_at": {
+    "type": "timestamp with time zone",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "CURRENT_TIMESTAMP"
+  },
+  "rating": {
+    "type": "numeric",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "'0'::numeric"
+  },
+  "review_count": {
+    "type": "integer",
+    "maxLength": null,
+    "nullable": true,
+    "defaultValue": "0"
+  },
+  "delivery_info": {
+    "type": "character varying",
+    "maxLength": 255,
+    "nullable": true,
+    "defaultValue": null
+  },
+  "category": {
+    "type": "character varying",
+    "maxLength": 255,
+    "nullable": true,
+    "defaultValue": null
+  }
+}
