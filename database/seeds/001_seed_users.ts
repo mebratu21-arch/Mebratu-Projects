@@ -8,9 +8,8 @@ export async function seed(knex: Knex): Promise<void> {
 
   const userId = randomUUID();
 
-  // Use PostgreSQL's crypt via pgcrypto or just store a pre-computed bcrypt hash
-  // $2b$12$ hash of 'password123'
-  const passwordHash = '$2b$12$LJ3m4ys3Lk0TSwHgFpxJxOGb5E9mZ7a.CvYB0KBLy7gXpLnbCVJu6';
+  // Bcrypt hash of 'password123'
+  const passwordHash = '$2b$12$XPfvVq5ZZz/p7TRm5/QhAew0YNXkTE0F6k8HmICCV6zkFauDMsg2S';
 
   // Seed a demo user
   await knex('users').insert({
