@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import TodoList from '../components/TodoList';
 import AddTodoForm from '../components/AddTodoForm';
 import EditTodoForm from '../components/EditTodoForm';
+import AIChatbot from '../components/AIChatbot';
 import { FiSearch, FiChevronLeft, FiChevronRight, FiList, FiCheckCircle, FiCircle, FiFlag } from 'react-icons/fi';
 
 const DashboardPage: FC = () => {
@@ -191,6 +192,9 @@ const DashboardPage: FC = () => {
       </main>
 
       {/* Edit Modal */}
+      {/* AI Chatbot */}
+      <AIChatbot />
+
       {editingTodo && (
         <EditTodoForm
           todo={editingTodo}

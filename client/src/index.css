@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Bootstrap */
-@import 'bootstrap/dist/css/bootstrap.min.css';
-
 /* ─── Base Styles ─────────────────────────────────── */
 * {
   margin: 0;
@@ -18,19 +15,6 @@ body {
   color: #e2e8f0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Override Bootstrap dark backgrounds */
-.btn-primary {
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #6366f1, #818cf8);
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
 }
 
 /* Custom Scrollbar */
@@ -66,4 +50,35 @@ a {
 ::selection {
   background-color: rgba(99, 102, 241, 0.3);
   color: #fff;
+}
+
+/* ─── Animations ─────────────────────────────────── */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.2s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.2s ease-out;
 }

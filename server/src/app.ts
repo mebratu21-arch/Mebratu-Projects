@@ -7,6 +7,7 @@ import loggerMiddleware from './middleware/logger.middleware';
 import { errorMiddleware } from './middleware/error.middleware';
 import authRoutes from './routes/auth.routes';
 import todoRoutes from './routes/todo.routes';
+import aiRoutes from './routes/ai.routes';
 
 const app = express();
 
@@ -14,10 +15,22 @@ const app = express();
 // Helmet: sets various HTTP headers for security
 app.use(helmet());
 
-// CORS: restrict which origins can access the API
+// CORS: allow requests from any localhost port during development
 app.use(
   cors({
-    origin: config.cors.origin,
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g., curl, Postman)
+      if (!origin) return callback(null, true);
+      // Allow any localhost port in development
+      if (config.nodeEnv === 'development' && /^http:\/\/localhost(:\d+)?$/.test(origin)) {
+        return callback(null, true);
+      }
+      // Allow the configured origin
+      if (origin === config.cors.origin) {
+        return callback(null, true);
+      }
+      callback(new Error('Not allowed by CORS'));
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -53,6 +66,7 @@ app.use(loggerMiddleware);
 // ─── Routes ────────────────────────────────────────────
 app.use('/api/auth', authLimiter, authRoutes);
 app.use('/api/todos', todoRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Health check endpoint
 app.get('/api/health', (_req, res) => {
