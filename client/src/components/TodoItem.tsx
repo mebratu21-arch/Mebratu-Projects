@@ -42,7 +42,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, onToggle, onEdit, onDelete }) => {
         {/* Toggle Button */}
         <button
           onClick={() => onToggle(todo.id)}
-          className={`mt-0.5 flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
+          className={`relative z-20 cursor-pointer mt-0.5 flex-shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all duration-200 ${
             todo.completed
               ? 'bg-green-500 border-green-500 text-white'
               : 'border-dark-500 hover:border-primary-400 text-transparent hover:text-primary-400'
@@ -108,10 +108,10 @@ const TodoItem: FC<TodoItemProps> = ({ todo, onToggle, onEdit, onDelete }) => {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 relative z-20">
           <button
             onClick={() => onEdit(todo)}
-            className="p-1.5 text-dark-400 hover:text-primary-400 hover:bg-primary-400/10 rounded-lg transition-all"
+            className="cursor-pointer p-1.5 text-dark-400 hover:text-primary-400 hover:bg-primary-400/10 rounded-lg transition-all"
             id={`edit-todo-${todo.id}`}
             title="Edit"
           >
@@ -119,7 +119,7 @@ const TodoItem: FC<TodoItemProps> = ({ todo, onToggle, onEdit, onDelete }) => {
           </button>
           <button
             onClick={() => onDelete(todo.id)}
-            className="p-1.5 text-dark-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all"
+            className="cursor-pointer p-1.5 text-dark-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-all"
             id={`delete-todo-${todo.id}`}
             title="Delete"
           >

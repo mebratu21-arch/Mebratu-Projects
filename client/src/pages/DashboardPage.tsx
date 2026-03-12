@@ -52,12 +52,12 @@ const DashboardPage: FC = () => {
       <Navbar />
 
       {/* Background effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-20 right-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 left-1/4 w-96 h-96 bg-primary-700/5 rounded-full blur-3xl"></div>
       </div>
 
-      <main className="relative container mx-auto px-4 py-8 max-w-2xl">
+      <main className="relative z-10 container mx-auto px-4 py-8 max-w-2xl">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-2xl font-bold text-white mb-1">My Todos</h1>
@@ -95,7 +95,7 @@ const DashboardPage: FC = () => {
                     setPage(1);
                   }}
                   id={`filter-${opt.value}`}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  className={`relative z-20 cursor-pointer flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                     filter === opt.value
                       ? 'bg-primary-600 text-white shadow-sm'
                       : 'text-dark-400 hover:text-white'
@@ -120,7 +120,7 @@ const DashboardPage: FC = () => {
                     setPage(1);
                   }}
                   id={`priority-filter-${opt.value}`}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
+                  className={`relative z-20 cursor-pointer px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all ${
                     priorityFilter === opt.value
                       ? opt.value === 'high'
                         ? 'bg-rose-500/20 text-rose-400'

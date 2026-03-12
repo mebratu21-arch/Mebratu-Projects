@@ -47,7 +47,7 @@ const AddTodoForm: FC<AddTodoFormProps> = ({ onAdd }) => {
       <button
         onClick={() => setIsOpen(true)}
         id="add-todo-button"
-        className="w-full flex items-center gap-3 p-4 bg-dark-800/40 hover:bg-dark-800/70 border border-dashed border-dark-600 hover:border-primary-500/50 rounded-xl text-dark-400 hover:text-primary-400 transition-all duration-200 group"
+        className="relative z-20 w-full flex items-center gap-3 p-4 bg-dark-800/40 hover:bg-dark-800/70 border border-dashed border-dark-600 hover:border-primary-500/50 rounded-xl text-dark-400 hover:text-primary-400 transition-all duration-200 group cursor-pointer"
       >
         <div className="w-8 h-8 rounded-lg bg-dark-700 group-hover:bg-primary-500/20 flex items-center justify-center transition-colors">
           <FiPlus className="text-lg" />
@@ -61,7 +61,7 @@ const AddTodoForm: FC<AddTodoFormProps> = ({ onAdd }) => {
     <form
       onSubmit={handleSubmit}
       id="add-todo-form"
-      className="bg-dark-800/60 border border-dark-700/50 rounded-xl p-4 animate-slide-down"
+      className="relative z-20 bg-dark-800/60 border border-dark-700/50 rounded-xl p-4 animate-slide-down"
     >
       <input
         type="text"
@@ -135,7 +135,7 @@ const AddTodoForm: FC<AddTodoFormProps> = ({ onAdd }) => {
         <button
           type="submit"
           disabled={!title.trim() || isSubmitting}
-          className="px-4 py-1.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-1.5 bg-primary-600 hover:bg-primary-500 text-white text-sm font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer relative z-30"
         >
           {isSubmitting ? 'Adding...' : 'Add Todo'}
         </button>
@@ -149,7 +149,7 @@ const AddTodoForm: FC<AddTodoFormProps> = ({ onAdd }) => {
             setDueDate('');
             setCategory('');
           }}
-          className="px-4 py-1.5 text-dark-400 hover:text-white text-sm font-medium rounded-lg transition-colors"
+          className="px-4 py-1.5 text-dark-400 hover:text-white text-sm font-medium rounded-lg transition-colors cursor-pointer relative z-30"
         >
           Cancel
         </button>
